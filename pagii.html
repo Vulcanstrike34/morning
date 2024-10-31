@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Good Morning Animation</title>
+  <style>
+    /* Style dasar */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #87CEEB; /* Warna langit */
+      overflow: hidden;
+    }
+
+    /* Tombol */
+    #myButton {
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #f9a825;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    /* Elemen animasi */
+    .sunrise {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    /* Matahari */
+    .sun {
+      position: absolute;
+      bottom: -150px;
+      width: 100px;
+      height: 100px;
+      background-color: #FFD700;
+      border-radius: 50%;
+      animation: rise 3s forwards;
+    }
+
+    /* Teks */
+    .goodmorning {
+      position: absolute;
+      top: 50%;
+      transform: translateY(150px);
+      font-size: 24px;
+      color: #fff;
+      opacity: 0;
+      animation: textFadeIn 3s 2s forwards;
+    }
+
+    /* Keyframes */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes rise {
+      to {
+        bottom: 50%;
+      }
+    }
+
+    @keyframes textFadeIn {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="myButton">Pencet ya</button>
+
+  <div class="sunrise" id="animationContainer" style="display: none;">
+    <div class="sun"></div>
+    <div class="goodmorning">Good Morning, Nashwa</div>
+  </div>
+
+  <script>
+    document.getElementById("myButton").onclick = function () {
+      document.getElementById("animationContainer").style.display = "flex";
+      this.style.display = "none"; // Sembunyikan tombol setelah diklik
+    };
+  </script>
+</body>
+</html>
